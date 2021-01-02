@@ -1,4 +1,4 @@
-.. image:: https://github.com/uraniumkid30/country_catalogue/master/logo/country.jpg
+.. image:: https://raw.githubusercontent.com/uraniumkid30/country_catalogue/master/logo/country.jpg
 
 This is a catalogue that gives you information about any country chosen.
 
