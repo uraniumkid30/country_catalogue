@@ -22,7 +22,7 @@ Or use the Python package:
 
 .. code-block:: bash
 
-  $ pip install --user countrycatalogue
+  $ pip install --user country_catalogue
 
 Command line tool
 -----------------
@@ -37,7 +37,7 @@ Create once the currency converter object:
 
 .. code-block:: python
 
-    >>> from country import CountryCatalogue
+    >>> from country_catalogue.country import CountryCatalogue
     >>> cc = CountryCatalogue()
 
 Convert from ``EUR`` to ``USD`` using the last available rate:
@@ -88,7 +88,7 @@ Tables are available based on ``Currency`` used by any country or  ``Continent``
 
 .. code-block:: python
 
-    >>> from country import CountryCatalogue
+    >>> from country_catalogue.country import CountryCatalogue
     >>> cc = CountryCatalogue()
     # Full name of currency can be used
     >>> cc.get_currency_table(full_name="Naira")
