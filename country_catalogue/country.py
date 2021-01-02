@@ -10,6 +10,9 @@ class CountryData:
     def __str__(self):
         return f"{self.official_name} ({self.ISO3166_1_Alpha_3})"
 
+class SimpleJsonspace(SimpleNamespace):
+    def __repr__(self):
+        return f"{self.official_name} ({self.ISO3166_1_Alpha_3})"
 
 class CountryCatalogue(Columns):
     def __init__(self):
@@ -75,7 +78,7 @@ class CountryCatalogue(Columns):
         cleaned_export = cleaned_export.rename(columns=columns_to_rename)
         dict_df = cleaned_export.to_dict(orient="list")
         dict_df = {x: dict_df[x][0] for x in dict_df}
-        return SimpleNamespace(**dict_df)
+        return SimpleJsonspace(**dict_df)
 
     def get_currency_table(*self, **kwargs):
         self = self[0]
@@ -123,8 +126,10 @@ class CountryCatalogue(Columns):
             'official_name_en',
             'ISO4217-currency_name'
         ]
+        reversed_continents = {self.continents[i]:i.capitalize() for i in self.continents}
         for i in upper_cols:
             ret_data[i] = ret_data[i].apply(lambda x: x.capitalize())
+        ret_data['Continent'] = ret_data["Continent"].apply(lambda x: reversed_continents.get(x))
         return ret_data
 
     def send_result(self, result, search_word, search_columns):
