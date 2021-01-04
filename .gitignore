@@ -22,3 +22,6 @@ settings.json
 
 # logs
 logs/
+build/
+dist/
+**.egg-info/
