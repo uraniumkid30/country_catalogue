@@ -1,6 +1,6 @@
 from types import SimpleNamespace
 from .columns import Columns
-
+from .utils import Private
 
 class CountryData:
     def __init__(self, country_info):
@@ -15,7 +15,7 @@ class SimpleJsonspace(SimpleNamespace):
     def __repr__(self):
         return f"{self.official_name} ({self.ISO3166_1_Alpha_3})"
 
-
+@Private('data')
 class CountryCatalogue(Columns):
     def __init__(self):
         Columns.__init__(self)
@@ -84,8 +84,8 @@ class CountryCatalogue(Columns):
 
     def get_currency_table(*self, **kwargs):
         self = self[0]
-        required = ["full_name", "short_code", "numeric_code"]
-        full_name = kwargs.get("full_name")
+        required = ["name", "short_code", "numeric_code"]
+        full_name = kwargs.get("name")
         short_code = kwargs.get("short_code")
         numeric_code = kwargs.get("numeric_code")
         if all(x is None for x in {full_name, short_code, numeric_code}):
@@ -109,7 +109,7 @@ class CountryCatalogue(Columns):
         return cleaned_export
 
     def get_continent_table(self, continent):
-        continent_name = self.continent.get(continent.lower())
+        continent_name = self.continents.get(continent.lower())
         if continent_name:
             result = self.data[(self.data['Continent'] == continent_name)]
             export_data = self.send_result(result, continent, 'continent')
@@ -138,4 +138,4 @@ class CountryCatalogue(Columns):
         if len(result):
             return result[self.active_columns]
         else:
-            raise ValueError(f'I couldnt find any countries with {search_columns} {search_word}')
+            print(f'I couldnt find any countries with {search_columns} {search_word}')
