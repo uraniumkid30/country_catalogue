@@ -62,7 +62,7 @@ Other attributes
     >>> cc.ISO3166_1_Alpha_3
     >>> cc.ISO3166_1_Alpha_2
 
-+ ``currency`` ``capital`` and ``continent'' is also available
++ ``currency`` ``capital`` and ``continent`` is also available
 
 
 Finally, you can use other attributes to get around:
