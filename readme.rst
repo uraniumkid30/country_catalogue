@@ -52,7 +52,7 @@ get_country_info returns an instance of ``SimpleNamespace`` which supports .(dot
 
 
 Other attributes
-~~~~~~~~~~~~~~~~
+----------------
 
 + ``english_formal_name`` ``CLDR_display_name`` ``official_name`` lets you know the name of the country
 
@@ -81,7 +81,7 @@ Finally, you can use other attributes to get around:
 
 
 Tables
-~~~~~~~
+------
 
 Tables are available based on ``Currency`` used by any country or  ``Continent`` that a country belongs to.
 
