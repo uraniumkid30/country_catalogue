@@ -2,6 +2,7 @@ from types import SimpleNamespace
 from .columns import Columns
 from .utils import Private
 
+
 class CountryData:
     def __init__(self, country_info):
         for key in country_info:
@@ -14,6 +15,7 @@ class CountryData:
 class SimpleJsonspace(SimpleNamespace):
     def __repr__(self):
         return f"{self.official_name} ({self.ISO3166_1_Alpha_3})"
+
 
 @Private('data')
 class CountryCatalogue(Columns):
