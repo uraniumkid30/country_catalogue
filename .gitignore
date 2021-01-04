@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+.mypy_cache/
+# Distribution / packaging
+.Python
+venv/
+env/
+.vscode
+settings.json
+
+
+# python_ dotenv
+.env
+.env_sample
+.envlocal
+
+# Unit test / coverage reports
+.coverage
+.DS_Store
+
+.idea/
+
+# logs
+logs/
+build/
+dist/
+**.egg-info/
